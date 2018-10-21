@@ -47,6 +47,7 @@ class ControlPanel extends React.Component {
     );
   }
 }
+
 class Counter extends React.Component {
 	constructor(props) {
 		super(props)
@@ -84,8 +85,13 @@ class Counter extends React.Component {
 	    );
 	  }
 }
-ReactDOM.render(<ControlPanel />, document.getElementById('root'));
 
+ReactDOM.render(
+   <div>
+      <ControlPanel />
+   </div>,
+  document.getElementById('example')
+);
 </script>
 
 </body>
