@@ -11,7 +11,7 @@
 <div id="example"></div>
 
 <script type="text/babel">
-class ControlPanel extends Component {
+class ControlPanel extends React.Component {
   constructor(props) {
     super(props)
     this.initialValue = [0, 10, 20]
@@ -47,7 +47,7 @@ class ControlPanel extends Component {
     );
   }
 }
-class Counter extends Component {
+class Counter extends React.Component {
 	constructor(props) {
 		super(props)
 		this.increase = this.increase.bind(this)
