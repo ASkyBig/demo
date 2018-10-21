@@ -11,64 +11,81 @@
 <div id="example"></div>
 
 <script type="text/babel">
-class Button extends React.Component {
+class ControlPanel extends Component {
   constructor(props) {
-      super(props);
-      this.state = {data: 0};
-      this.setNewNumber = this.setNewNumber.bind(this);
+    super(props)
+    this.initialValue = [0, 10, 20]
+    const initSum = this.initialValue.reduce((a,b) => a + b, 0)
+    this.updateSum = this.updateSum.bind(this)
+    this.state = {
+      sum: initSum
+    }
   }
-  
-  setNewNumber() {
-    this.setState({data: this.state.data + 1})
+
+  updateSum(isAdd) {
+    if(isAdd === 1) {
+      this.setState({
+         sum: this.state.sum + 1
+      })
+    } else {
+       this.setState({
+        sum: this.state.sum - 1
+      })
+    }
+   
   }
+
   render() {
-      return (
-         <div>
-            <button onClick = {this.setNewNumber}>INCREMENT</button>
-            <Content myNumber = {this.state.data}></Content>
-         </div>
-      );
-    }
+    return (
+      <div>
+        <Counter name="first" value={this.initialValue[0]} onUpdate={this.updateSum} />
+        <Counter name="second" value={this.initialValue[1]} onUpdate={this.updateSum}/>
+        <Counter name="third" value={this.initialValue[2]} onUpdate={this.updateSum}/>
+        <hr />
+        <span>total: {this.state.sum}</span>
+      </div>
+    );
+  }
 }
+class Counter extends Component {
+	constructor(props) {
+		super(props)
+		this.increase = this.increase.bind(this)
+		this.decrease = this.decrease.bind(this)
+		this.state = {
+			count: props.value
+		}
+		console.log(props.onUpdate)
+	}
 
+	increase() {
+		this.setState({
+			count: this.state.count + 1
+		})
+		this.props.onUpdate(1)
+	}
 
-class Content extends React.Component {
-  componentWillMount() {
-      console.log('Component WILL MOUNT!')
-  }
-  componentDidMount() {
-       console.log('Component DID MOUNT!')
-  }
-  componentWillReceiveProps(newProps) {
-        console.log('Component WILL RECEIVE PROPS!')
-  }
-  shouldComponentUpdate(newProps, newState) {
-        return true;
-  }
-  componentWillUpdate(nextProps, nextState) {
-        console.log('Component WILL UPDATE!');
-  }
-  componentDidUpdate(prevProps, prevState) {
-        console.log('Component DID UPDATE!')
-  }
-  componentWillUnmount() {
-         console.log('Component WILL UNMOUNT!')
-  }
- 
-    render() {
-      return (
-        <div>
-          <h3>{this.props.myNumber}</h3>
-        </div>
-      );
-    }
+	decrease() {
+		this.setState({
+			count: this.state.count - 1
+		})
+		this.props.onUpdate(-1)
+	}
+
+	  render() {
+	  	const {name} = this.props
+	    return (
+	      <div>
+	        <button onClick={this.increase}>+</button>
+	        <span> {this.state.count} </span>
+	        <button onClick={this.decrease}>-</button>
+	        <span>{name}</span>
+	      </div>
+	    );
+	  }
 }
-ReactDOM.render(
-   <div>
-      <Button />
-   </div>,
-  document.getElementById('example')
-);
+ReactDOM.render(<ControlPanel />, document.getElementById('root'));
+
 </script>
 
 </body>
