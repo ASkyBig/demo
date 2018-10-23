@@ -2,118 +2,185 @@
 <html>
 <head>
   <style type="text/css">
-    .out {
-      width: 400px;
-      height: 30px;
-      border-radius: 15px;
-      background: lightgray;
-    }
+   .out {
+  width: 400px;
+  height: 30px;
+  border-radius: 15px;
+  background: lightgray;
+}
+.in {
+  width: 55%;
+  height: 30px;
+  border-radius: 15px;
+  background: orange;
+}
 
-    .in {
-      width: 55%;
-      height: 30px;
-      border-radius: 15px;
-      background: orange;
-    }
+input {
+  width: 20px;
+}
+.out1 {
+  width: 400px;
+  height: 30px;
+  border-radius: 15px;
+  background: lightgray;
+  overflow: hidden; 
+}
+.in1 {
+  width: 0px;
+  height: 30px;
+  border-radius: 15px;
+  background: orange;
+}
 
-    input {
-      width: 20px;
-    }
+.container {
+    width: 500px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.item {
+    width: 10%;
+    border: 1px solid gray;
+    background: lightgray;
+    margin-right: 0px;
+    height: 10px;
+}
+.item:nth-child(1) {
+   border-top-left-radius:10px;
+   border-bottom-left-radius:10px;
+}
+.item:nth-child(10) {
+   border-top-right-radius:5px;
+   border-bottom-right-radius:5px;
+}
+.filled {
+    background: orange;
+}
 
-    .out1 {
-      width: 400px;
-      height: 30px;
-      border-radius: 15px;
-      background: lightgray;
-      overflow: hidden; 
-    }
-
-    .in1 {
-      width: 0px;
-      height: 30px;
-      border-radius: 15px;
-      background: orange;
-    }
-
-    .container {
-        width: 500px;
-        height: 30px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .item {
-        width: 10%;
-        border: 0.5px solid gray;
-        background: lightgray;
-        margin-right: 0px;
-        height: 10px;
-    }
-
-    .item:nth-child(1) {
-       border-top-left-radius:10px;
-       border-bottom-left-radius:10px;
-    }
-
-    .item:nth-child(10) {
-       border-top-right-radius:5px;
-       border-bottom-right-radius:5px;
-    }
-
-    .filled {
-        background: orange;
-    }
+.shiduan {
+   position: relative;
+    width: 500px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.shiduanItem {
+    width: 33.33%;
+    border: 0px solid black;
+    background: lightgray;
+}
+.shiduanItem:nth-child(1) {
+   border-top-left-radius:10px;
+   border-bottom-left-radius:10px;
+}
+.shiduanItem:nth-child(3) {
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
+.shiduan_num {
+/*   position:absolute;
+  margin-left: 5px;
+  border: 1px solid red;
+  width: 490px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+  position: absolute;
+  margin-left: 2%
+}
+.shiduan_num span:nth-child(2) {
+  position: relative;
+  left: 108px;
+}
+.shiduan_num span:nth-child(3) {
+  position: relative;
+  left: 238px;
+}
+.shiduan_num span:nth-child(4) {
+  position: relative;
+  left: 347px;
+}
+.shiduan_filled {
+   background: orange;
+}
   </style>
 </head>
 <body>
-  <p>直出数据进度条：</p>
-  <div class="out">
-      <div class="in"></div>
+ <p>直出数据进度条：</p>
+<div class="out">
+    <div class="in"></div>
+</div>
+<hr />
+<p>动态数据进度条：<input type="text" id="val_input" oninput="progressChange()"/>%</p>
+<div class="out1">
+    <div class="in1"></div>
+</div>
+<hr />
+<p>分段进度条，输入进度（1-10）：<input type="text" id="val_input1" oninput="progressChange1()"/></p>
+<div class="container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+   <div class="item"></div>
+</div>
+<hr />
+<p>时段进度条(0-24)：<input type="text" id="hour_input" oninput="hourProgressChange()"/></p>
+<div class="shiduan">
+    <div class="shiduanItem"></div>
+    <div class="shiduanItem"></div>
+    <div class="shiduanItem"></div>
+    <div class="shiduan_num">
+      <span>08:00</span>
+      <span>12:00</span> 
+      <span>20:00</span>
+      <span>08:00</span>
   </div>
-
-  <p>动态数据进度条：<input type="text" id="val_input" oninput="progressChange()"/>%</p>
-  <div class="out1">
-      <div class="in1"></div>
-  </div>
-
-  <p>分段进度条，输入进度（1-10）：<input type="text" id="val_input1" oninput="progressChange1()"/></p>
-  <div class="container">
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-     <div class="item"></div>
-  </div>
+</div>
 <script>
-  function progressChange() {
-    var inputVal = document.getElementById('val_input').value;
-    if(inputVal>100) {
-      inputVal = 100;
-    }
-    var outVal = parseInt(window.getComputedStyle(document.getElementsByClassName('out1')[0]).width);
-    var inVal = +inputVal * outVal / 100;
-    document.getElementsByClassName('in1')[0].style.width = inVal + 'px';
+ function progressChange() {
+  var inputVal = document.getElementById('val_input').value;
+  if(inputVal>100) {
+    inputVal = 100;
   }
+  var outVal = parseInt(window.getComputedStyle(document.getElementsByClassName('out1')[0]).width);
+	var inVal = +inputVal * outVal / 100;
+  document.getElementsByClassName('in1')[0].style.width = inVal + 'px';
+}
 
-  function progressChange1() {
-    var inputVal = document.getElementById('val_input1').value;
-    var leftVal = 10 -inputVal;
-    if(inputVal>10) {
-      inputVal = 10;
-    }
-    for(var i=0;i<inputVal;i++) {
-      document.getElementsByClassName('item')[i].className = 'item filled'
-    }
-    for(var i=leftVal;i>0;i--) {
-      document.getElementsByClassName('item')[10-i].className = 'item'
-    }
+function progressChange1() {
+  var inputVal = document.getElementById('val_input1').value;
+  var leftVal = 10 -inputVal;
+  if(inputVal>10) {
+    inputVal = 10;
   }
+	for(var i=0;i<inputVal;i++) {
+    document.getElementsByClassName('item')[i].className = 'item filled'
+  }
+  for(var i=leftVal;i>0;i--) {
+    document.getElementsByClassName('item')[10-i].className = 'item'
+  }
+}
+
+function hourProgressChange() {
+   var inputVal = document.getElementById('hour_input').value;
+   document.getElementsByClassName('shiduanItem')[0].className = 'shiduanItem'
+   document.getElementsByClassName('shiduanItem')[1].className = 'shiduanItem'
+   document.getElementsByClassName('shiduanItem')[2].className = 'shiduanItem'
+   if(inputVal>=8 && inputVal<12) 
+     document.getElementsByClassName('shiduanItem')[0].className = 'shiduanItem shiduan_filled'
+   if(inputVal>=12 && inputVal<20) 
+     document.getElementsByClassName('shiduanItem')[1].className = 'shiduanItem shiduan_filled'
+   if(inputVal>=20 || inputVal<8) 
+     document.getElementsByClassName('shiduanItem')[2].className = 'shiduanItem shiduan_filled'
+}
 </script>
 </body>
 </html>
