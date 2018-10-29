@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <input type="button" id="btn" value="测试是否绑定事件" />
+  <input type="button" id="btnTest" value="被测试按钮"  />
+  <button id="btnCancel">移除绑定</button>
+  <script>
+   $(function () {
+        $("#btnTest").click(function () { alert('aa'); });
+        $("#btn").click(function () {
+            //判断是否绑定了click事件
+            var objEvt = $._data($("#btnTest")[0], "events");
+            if (objEvt && objEvt["click"]) {
+                //console.info(objEvt["click"]);
+                alert("bind click");
+            }
+            else {
+                alert("Not bind click");
+            }
+        });
+   			$("#btnCancel").click(function(){
+          $("#btnTest").off("click");
+        })
+  });
+  </script>
+</body>
+</html>
