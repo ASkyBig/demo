@@ -5,4 +5,4 @@
 - [CSS进度条](https://askybig.github.io/demo/CSS/progress.html): 百分比、分段进度条。
 
 ### jQuery_demo
-- [判断元素是否绑定事件](https://askybig.github.io/demo/jQuery/progress.html): 百分比、分段进度条。
+- [判断元素是否绑定事件](https://askybig.github.io/demo/jQuery/判断元素是否绑定事件.html): 百分比、分段进度条。
