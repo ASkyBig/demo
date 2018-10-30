@@ -10,4 +10,4 @@
 ### JavaScript_demo
 - [浏览器选项卡标题内容切换闪烁](https://askybig.github.io/demo/JavaScript/changeBrowserTitle.html)
 
-当页面不可见是，页面的选项卡标题以 500ms 间隔在原标题和“你有新消息”之间切换闪烁；当处于 focus 状态时，页面标题还原，取消闪烁。
+当页面不可见，页面的选项卡标题以 500ms 间隔在原标题和“你有新消息”之间切换闪烁；当处于 focus 状态时，页面标题还原，取消闪烁。
