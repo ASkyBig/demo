@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <script>
+    const title = document.title;	
+    const newTitle = 'new title'; 
+    const t;		
+    
+		document.addEventListener("visibilitychange", function() {  
+			  if (document.visibilityState == 'hidden' ) {
+					t = setInterval(function(){
+						if(document.title == title) document.title = newTitle;
+						else document.title = title
+					},500)
+			  } else if (document.visibilityState == 'visible') {
+			  		console.log('切回来了');
+					  clearInterval(t)
+			  		document.title = title;
+			  }
+		});
+  </script>
+</body>
+</html>
