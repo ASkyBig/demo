@@ -8,23 +8,22 @@
   <input type="button" id="btnTest" value="被测试按钮"  />
   <button id="btnCancel">移除绑定</button>
   <script>
-   $(function () {
-        $("#btnTest").click(function () { alert('aa'); });
-        $("#btn").click(function () {
-            //判断是否绑定了click事件
-            var objEvt = $._data($("#btnTest")[0], "events");
-            if (objEvt && objEvt["click"]) {
-                //console.info(objEvt["click"]);
-                alert("bind click");
-            }
-            else {
-                alert("Not bind click");
-            }
-        });
-   			$("#btnCancel").click(function(){
-          $("#btnTest").off("click");
-        })
-  });
+	var title = document.title;	
+	var newTitle = 'new title'; 
+	var t;			
+	document.addEventListener("visibilitychange", function() {  
+		if (document.visibilityState == 'hidden' ) {
+			t = setInterval(function(){
+				if(document.title == title) document.title = newTitle;
+				else document.title = title
+			},500)
+
+		  } else if (document.visibilityState == 'visible') {
+				console.log('切回来了');
+				clearInterval(t)
+				document.title = title;
+		  }
+	});
   </script>
 </body>
 </html>
