@@ -6,7 +6,7 @@
   <script>
     const title = document.title;	
     const newTitle = 'new title'; 
-    const t;		
+    var t; //此处不能用const，因为没有赋值		
     
 		document.addEventListener("visibilitychange", function() {  
 			  if (document.visibilityState == 'hidden' ) {
