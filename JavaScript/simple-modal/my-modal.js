@@ -1,4 +1,4 @@
-"use strict"
+
 (function() {
 	function modal_alert(options={}) {
 		var defaultOpts = {
@@ -65,4 +65,7 @@
 			clearTimeout(t)
 		}, options.time)
 	}
+	 window.utils = {
+	    modal_alert: modal_alert
+  }
 })()
