@@ -18,6 +18,6 @@
 utils.modal_alert(content, position, time);
 
   content: 可选，弹窗内容
-  position: 可选，弹窗位置
+  position: 可选，弹窗位置（只写了两个，center 和 bottom）
   time: 可选， 弹窗出现时间
 ```
