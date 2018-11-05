@@ -38,7 +38,7 @@
 		elediv.style.height = '100%'
 		elediv.style.position = "fixed";
 		elediv.style.top = 0;
-	    elediv.style.left = 0;
+	    	elediv.style.left = 0;
 		elediv.animate([ 
 		  { 
 		    opacity: 0
