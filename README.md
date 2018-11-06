@@ -21,3 +21,7 @@ utils.modal_alert(content, position, time);
   position: 可选，弹窗位置（只写了两个，center 和 bottom）
   time: 可选， 弹窗出现时间
 ```
+
+- [js 删除、添加 HTML 文档上的注释](https://askybig.github.io/demo/JavaScript/removeAndAddComment.html)
+
+观察控制台元素
