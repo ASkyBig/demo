@@ -10,17 +10,17 @@
 ### JavaScript_demo
 - [浏览器选项卡标题内容切换闪烁](https://askybig.github.io/demo/JavaScript/changeBrowserTitle.html)
 
-当页面不可见，页面的选项卡标题以 500ms 间隔在原标题和“你有新消息”之间切换闪烁；当处于 focus 状态时，页面标题还原，取消闪烁。
+  当页面不可见，页面的选项卡标题以 500ms 间隔在原标题和“你有新消息”之间切换闪烁；当处于 focus 状态时，页面标题还原，取消闪烁。
 
 - [简单的弹窗modal](https://askybig.github.io/demo/JavaScript/simple-modal/simple-modal.html)
 
-```
-utils.modal_alert(content, position, time);
+  ```
+  utils.modal_alert(content, position, time);
 
-  content: 可选，弹窗内容
-  position: 可选，弹窗位置（只写了两个，center 和 bottom）
-  time: 可选， 弹窗出现时间
-```
+    content: 可选，弹窗内容
+    position: 可选，弹窗位置（只写了两个，center 和 bottom）
+    time: 可选， 弹窗出现时间
+  ```
 
 - [js 删除、添加 HTML 文档上的注释](https://askybig.github.io/demo/JavaScript/removeAndAddComment.html)
 
