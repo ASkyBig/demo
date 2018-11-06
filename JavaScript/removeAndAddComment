@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title></title>
+  <!-- 不要过来 -->
+</head>
+<body>
+<!-- 这家公司没有年终奖 -->
+<h1>this is comment test</h1>
+<button onClick="removeComments(document)">remove</button>
+<button onClick="addComments()">add</button>
+<script>
+ function removeComments( el ) {
+		var arr = [];
+		for( var i = 0; i < el.childNodes.length; i++ ) {
+			var node = el.childNodes[i];
+			if( node.nodeType === 8 ) {
+				node.remove();
+			} else {
+				removeComments( node );
+			}
+		}
+	}
+
+ function addComments() {
+  	var comment = document.createComment( '这家公司没有年终奖，社保也交外地，不要过来!' );
+	  document.body.appendChild( comment );
+ }
+</script>
+</body>
+</html>
