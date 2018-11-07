@@ -5,6 +5,8 @@
 
 - [counter-with-context](https://askybig.github.io/demo/React/counter-with-context.html): 利用 context 传递 store，避免 store 不必要的传递。
 
+- [counter-with-react-redux.html](https://askybig.github.io/demo/React/counter-with-react-redux.html): 改进了 [counter-with-Redux](https://askybig.github.io/demo/React/counter-with-Redux.html) 的例子，使用了 react-redux 
+
 ### CSS_demo
 - [CSS进度条](https://askybig.github.io/demo/CSS/progress.html): 百分比、分段进度条。
 
