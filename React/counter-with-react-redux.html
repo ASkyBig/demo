@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>React 实例</title>
+	<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+	<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+	<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.min.js"></script>
+	<!-- Since react 15.5, PropTypes is included in a separate package, 'prop-types' -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.1.0/react-redux.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+function increase(name) {
+  return { type: 'INCREMENT', name: name };
+}
+function decrease(name) {
+  return { type: 'DECREMENT', name: name };
+}
+
+const initialValue = {first: 0, second: 10, third: 20}
+
+function reducer(state, action) {
+  const { name } = action;
+  console.log('action', action)
+  console.log('state', state)
+
+  switch (action.type) {
+    case 'INCREMENT':
+      return { ...state, [name]: state[name] + 1 };
+    case 'DECREMENT':
+      return { ...state, [name]: state[name] - 1 };
+    default:
+      return state; // 无论如何都返回一个 state
+  }
+}
+
+let store = Redux.createStore(reducer, initialValue);
+
+class ControlPanel extends React.Component {
+  constructor(props, context) {
+    super(props, context)
+    this.onChange = this.onChange.bind(this)
+    this.state = {
+      sum: this.getOwnState()
+    }
+  } 
+
+  componentDidMount() {
+  	this.context.store.subscribe(this.onChange)
+  }
+
+  componentWillUnmount() {
+  	this.context.store.unsubscribe(this.onChange)
+  }
+
+  getOwnState() {
+  		const state = this.context.store.getState()
+  		let sum = 0
+  		for( const key in state ) {
+  			if( state.hasOwnProperty(key)) {
+  				sum += state[key];
+  			}
+  		}
+		return sum;
+  }
+
+  onChange() {
+  	console.log('this.getOwnState', this.getOwnState())
+  	this.setState({sum: this.getOwnState()})
+  }
+  
+  render() {
+    return (
+      <div>
+        <Counter name="first"  />
+        <Counter name="second" />
+        <Counter name="third" />
+        <hr />
+        <span>total: {this.state.sum}</span>
+      </div>
+    );
+  }
+}
+ControlPanel.contextTypes = {
+	store: PropTypes.object
+}
+
+// 无状态组件
+class CounterInner extends React.Component {
+	render() {
+		const { name, count, onIncrease, onDecrease } = this.props
+	    return (
+	      <div>
+	        <button onClick={onIncrease}>+</button>
+	        <span>{count}</span>
+	        <button onClick={onDecrease}>-</button>
+	        <span>{name}</span>
+	      </div>
+	    );
+	}
+}
+
+function mapStateToProps(state, ownProps) {
+  return {
+    count: state[ownProps.name]
+  }
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    onIncrease: () => {
+      dispatch(increase(ownProps.name));
+    },
+    onDecrease: () => {
+      dispatch(decrease(ownProps.name));
+    }
+  }
+}
+
+let Counter = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(CounterInner)
+
+ReactDOM.render(
+   <ReactRedux.Provider store={store}>
+      <ControlPanel />
+   </ReactRedux.Provider>,
+  document.getElementById('example')
+);
+</script>
+
+</body>
+</html>
