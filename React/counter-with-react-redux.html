@@ -43,29 +43,6 @@ function reducer(state, action) {
 let store = Redux.createStore(reducer, initialValue);
 
 class ControlPanel extends React.Component {
-  constructor(props, context) {
-    super(props, context)
-    this.onChange = this.onChange.bind(this)
-    this.state = {
-      sum: this.getOwnState()
-    }
-  } 
-
-  getOwnState() {
-  		const state = this.context.store.getState()
-  		let sum = 0
-  		for( const key in state ) {
-  			if( state.hasOwnProperty(key)) {
-  				sum += state[key];
-  			}
-  		}
-		return sum;
-  }
-
-  onChange() {
-  	console.log('this.getOwnState', this.getOwnState())
-  	this.setState({sum: this.getOwnState()})
-  }
   
   render() {
     return (
@@ -74,14 +51,31 @@ class ControlPanel extends React.Component {
         <Counter name="second" />
         <Counter name="third" />
         <hr />
-        <span>total: {this.state.sum}</span>
+        <SumOuter />
       </div>
     );
   }
 }
-ControlPanel.contextTypes = {
-	store: PropTypes.object
+
+class SumInner extends React.Component {
+	render() {
+		return(
+			<div>total: {this.props.sum}</div>
+		)
+	}
 }
+
+function mapState(state) {
+  let sum = 0;
+  for (const key in state) {
+    if (state.hasOwnProperty(key)) {
+      sum += state[key];
+    }
+  }
+  return {sum: sum};
+}
+
+let SumOuter = ReactRedux.connect(mapState)(SumInner)
 
 // 无状态组件
 class CounterInner extends React.Component {
