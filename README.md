@@ -7,6 +7,8 @@
 
 - [counter-with-react-redux.html](https://askybig.github.io/demo/React/counter-with-react-redux.html): 改进了 [counter-with-Redux](https://askybig.github.io/demo/React/counter-with-Redux.html) 的例子，使用了 react-redux 
 
+- [Higher-Order-Components.html](https://askybig.github.io/demo/React/Higher-Order-Components.html): 高阶组件demo，提取通用逻辑
+
 ### CSS_demo
 - [CSS进度条](https://askybig.github.io/demo/CSS/progress.html): 百分比、分段进度条。
 
