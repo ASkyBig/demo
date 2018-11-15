@@ -34,5 +34,5 @@
 
   观察控制台元素
   
-  - [原生js 实现 h5 列表下拉刷新加载](https://askybig.github.io/demo/JavaScript/h5-list-pulldown-to-refresh.html)
+- [原生js 实现 h5 列表下拉刷新加载](https://askybig.github.io/demo/JavaScript/h5-list-pulldown-to-refresh.html)
 
