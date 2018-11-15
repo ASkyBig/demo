@@ -36,3 +36,5 @@
   
 - [原生js 实现 h5 列表下拉刷新加载](https://askybig.github.io/demo/JavaScript/h5-list-pulldown-to-refresh.html)
 
+  控制台打开「客户端模式」，就是那个小手机。另外，滑的慢一点，这个接口好像不太给力。
+
