@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>list</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="content-Type" content="text/html; charset=UTF-8" /> 
+</head>
+<style type="text/css">
+	body {
+		font-size: 12px;
+	}
+	.ele-blind {
+		display: none;
+	}
+	.content-wrapper {
+		position: relative;
+		padding: 12px 0;
+    	text-align: left;
+    	border-bottom: 1px solid #E2E3E5;
+	}
+	.title {
+    	color: #313131;
+	}
+	.time {
+		margin-bottom: 2px;
+    	font-size: 14px;
+   		color: #bfbfbf;
+	}
+	#loading {
+		text-align: center;
+  		height: 30px;
+  		line-height: 30px;
+	}
+</style>
+<body>
+	<div class="list-wrapper">
+        <div class="no-list ele-blind">
+            <div>(*￣(oo)￣*)</div>
+            <div>没有中奖，快去参加活动吧～</div>
+        </div>
+    </div>
+
+    <div id="loading" class="ele-blind">
+        <span>加载中...</span>
+    </div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	let times = 0 // 由于是模拟数据，加载两次意思意思
+	let isFetching = false // 是否正在发送请求
+	let canFetch = true // 下拉后是否可以请求
+	// let pageSize = 20
+
+	let view = {
+		init: function() {
+			view.getListData()
+			window.addEventListener('scroll', () => {
+				if (!canFetch) return
+				view.scrollEvent()
+			}, false)
+		},
+
+		scrollEvent: function() {
+
+			if(isFetching) return
+
+			var listWrapper = document.getElementsByClassName('list-wrapper')[0]
+
+			var listWrapperHeight = parseInt(getComputedStyle(listWrapper).height)
+			var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+			var viewHeight = window.innerHeight
+
+			var differenceHeight = listWrapperHeight - scrollTop - viewHeight
+
+			// 200 而不是 0，是为了让 scroll 提前触发加载，更加平滑
+			if(differenceHeight <= 200) {
+				console.log(differenceHeight)
+				view.getListData()	
+			}
+		},
+
+		getListData: function() {
+			if (isFetching) return
+            isFetching = true
+
+			document.getElementById("loading").classList.remove("ele-blind")
+
+			fetch('https://easy-mock.com/mock/5bec21a63e54131e11d495f5/demo/list-info')
+			  .then(function(response) {
+			    return response.json();
+			  }).then(function(res) {
+			  	times++
+				isFetching = false
+			  	let {data} = res
+
+			  	// 加载两次意思意思
+			  	if(data.length > 0 && times < 4) {
+			  		// if(data.length < pageSize) {
+			  		// 	// 首屏去掉 加载中...
+			  		// 	view.getListData()
+			  		// }
+			  		view.renderList(data)
+			  	} else {
+			  		canFetch = false
+			  		document.getElementById("loading").innerText = "已经到底了~"
+			  	} 
+			  }).catch(function(e) {
+			    console.error("error");
+			  });
+		},
+
+		renderList: function(dataList) {
+			let listWrapper = document.getElementsByClassName('list-wrapper')[0]
+			listWrapper.classList.remove("ele-blind")
+
+            dataList.map(awardInfo => {
+            	listWrapper.innerHTML += view.returnTpl(awardInfo)
+            })
+		},
+
+		returnTpl: function(props) {
+			const {userName, desc, timeStr} = props
+			return `<div class="content-wrapper">
+						<div class="title">${userName}</div>
+						<div>${desc}</div>
+						<div class="time">${timeStr}</div>
+			</div>`
+		}
+
+	}
+
+	view.init()
+</script>
+</body>
+</html>
