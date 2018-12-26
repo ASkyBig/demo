@@ -1,0 +1,61 @@
+<html>
+<head>
+</head>
+<body>
+	<figure-info src="https://qidian.qpic.cn/qidian_common/349573/ee4ff8502c09c020ce5e90d6a41b4c32/0" text="这只叫&quot;天天&quot;的猫正在看你"></figure>
+</body>
+<script type="text/javascript">
+
+class FigureInfo extends HTMLElement {
+  constructor() {
+    super()
+    
+    const shadow = this.attachShadow({mode: 'open'});
+
+    const wrapper = document.createElement('div');
+    wrapper.setAttribute('class', 'figure');
+
+    const img = document.createElement('img');
+    img.src = this.getAttribute('src');
+    img.alt="这只叫&quot;天天&quot;的猫正在看你";
+    wrapper.appendChild(img);
+
+    const p = document.createElement('p');
+    p.textContent = this.getAttribute('text');
+    wrapper.appendChild(p)
+
+    const style = document.createElement('style');
+
+    style.textContent = `
+      .figure {
+        position: relative;
+      }
+      img {
+        width: 100%;
+      }
+      p {
+        position: absolute;
+        color: #FFF;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        text-align: center;
+        margin: 0;
+        padding: 15px 0;
+      }
+    `;
+
+    // Attach the created elements to the shadow dom
+    shadow.appendChild(style);
+    shadow.appendChild(wrapper);
+    wrapper.appendChild(img);
+    wrapper.appendChild(p);
+  }
+}
+
+// Define the new element
+customElements.define('figure-info', FigureInfo);
+</script>
+</body>
+</html>
