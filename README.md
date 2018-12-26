@@ -38,5 +38,5 @@
 
   控制台打开「客户端模式」，就是那个小手机。另外，滑的慢一点，这个接口好像不太给力。
 
-- [shadow dom] demo(https://github.com/ASkyBig/demo/blob/master/JavaScript/shadow_dom_demo.html)
+- [shadow dom demo](https://github.com/ASkyBig/demo/blob/master/JavaScript/shadow_dom_demo.html)
   shadow dom 的 demo 展示
