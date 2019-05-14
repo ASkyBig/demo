@@ -13,9 +13,9 @@
       <input placeholder="请输入你要找的会议室" id="name">
       <button onClick="findRoom()">确定</button>
       <div>
-         <canvas id="canvas" width="2000px" height="1000px"></canvas>
+         <canvas id="canvas" width="3000" height="1600" style="width: 1600px; height: 1000px"></canvas>
       </div>
-      <div style="width: 0; height: 0;">
+      <div style="width: 0; height: 0;display: none;">
           <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/0F.jpg">
           <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/1F.jpg">
           <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/2F.jpg">
@@ -108,17 +108,21 @@
        
          var img = new Image();
          img.src = `./${whickF}F.jpg`;
+         // img.style.width = '1600px';
+         // img.style.height = '800px';
          img.onload = function() {
-              ctx.drawImage(img, 0, 0, ratio * 600, ratio * 400);
+              ctx.drawImage(img, 0, 0, ratio * 1500, ratio* 800);
               ctx.beginPath();
               ctx.strokeStyle="red";
               let pos = allRoomPos[name]
+
               ctx.moveTo(pos.p1.x + 10, pos.p1.y - 10);
               ctx.lineTo(pos.p2.x + 10, pos.p2.y + 10);
               ctx.lineTo(pos.p3.x - 10, pos.p3.y + 10);
               ctx.lineTo(pos.p4.x - 10, pos.p4.y - 10);
               ctx.closePath()
               ctx.stroke();
+              // ctx.scala(ratio, ratio)
          }
       }
 
