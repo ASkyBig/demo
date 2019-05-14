@@ -15,6 +15,14 @@
       <div>
          <canvas id="canvas" width="2000px" height="1000px"></canvas>
       </div>
+      <div style="width: 0; height: 0;">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/0F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/1F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/2F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/3F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/4F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/5F.jpg">
+      </div>
      <script>
      // 如果存在
      if(localStorage.getItem('ywMeeting')) {
@@ -99,7 +107,7 @@
          var ratio = getPixelRatio(ctx);
        
          var img = new Image();
-         img.src = `${whickF}F.jpg`;
+         img.src = `./${whickF}F.jpg`;
          img.onload = function() {
               ctx.drawImage(img, 0, 0, ratio * 600, ratio * 400);
               ctx.beginPath();
