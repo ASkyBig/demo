@@ -9,12 +9,23 @@
    </head>
    
    <body>
+      <div style="width: 300px; height: 100%; position: fixed; right: 0px; top: 0; background-color: rgba(0,0,0,0.1)">
+        <div style="font-size: 20px; margin-top: 30px;border-bottom: 1px solid black; padding-bottom: 20px; color: black; margin-left: 20px;">B: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="白虎"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">C: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="出窍"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">F: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="凤凰"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="梵天"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">H: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="活动区"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="幻灵"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">J: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="金丹"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">K: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="鲲鹏"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">L: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="炼气"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="黎山"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="雷霆"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">Q: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="麒麟"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="青龙玄武"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="千秋"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">T: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="太白"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="天玑"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="天权"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="天璇"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">W: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="武道"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="万载"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">X: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="仙游"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="修真"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">Y: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="瑜伽室"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="元神"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="影音室"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">Z: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="筑基"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="祝融"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="紫薇"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="颛顼"><input style="font-size: 30px;" type="button" value="镇元"></div>
+      </div>
       <p id="des">作为一个没有方向感的人，经常开会找不到会议室，所以就做了这个，灰常简陋，说不定还有bug~（第一次加载比较慢，因为图片都在GitHub）</p>
-      <a href="https://github.com/ASkyBig/demo/issues/1" style="position: absolute; top: 10px; right: 10px;">issue地址</a>
-      <form>
-         <input required placeholder="请输入你要找的会议室" id="name">
-         <button type="button" onClick="findRoom()">确定</button>
-      </form>
+      <a href="https://github.com/ASkyBig/demo/issues/1" style="position: absolute; top: 10px; right: 10px;">[issue地址]</a>
       <div>
          <canvas id="canvas" width="3000" height="1600" style="width: 1600px; height: 1000px"></canvas>
       </div>
@@ -33,6 +44,9 @@
      } else {
          localStorage.setItem('ywMeeting','1')
      }
+     window.addEventListener('click', function (e) {
+      findRoom(e.target.value);
+     })
      var ctx = document.getElementById('canvas').getContext('2d');
       const allRoomNames = {
                             "1F":["幻灵", "仙游", "修真", "武道", "影音室", "活动区", "瑜伽室"],
@@ -100,8 +114,8 @@
                            "紫薇": {'p1': {'x': 1035, 'y': 310}, 'p2': {'x': 1035, 'y': 380}, 'p3': {'x': 970, 'y': 380}, 'p4': {'x': 970, 'y': 310}}, 
                          }
    
-      function findRoom () {
-         let name = document.getElementById("name").value;
+      function findRoom (name) {
+         // let name = document.getElementById("name").value;
          let whickF = 0;
          const fArr = Object.keys(allRoomNames);
          for( let i = 0; i < fArr.length; i++) {
