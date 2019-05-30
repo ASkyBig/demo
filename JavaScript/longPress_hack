@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>DOM小测32 杨建</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+   <style>
+   	.box {
+	  display: inline-block;
+	  width: 100px;
+	  height: 100px;
+	  background-color: gray;
+	  margin: 10px;
+	}
+
+	.box.active {
+	  background-color: skyblue;
+	}
+   </style>
+</head>
+<body>
+  <script type="text/javascript">
+	var box = `<div class="box"></div>`
+
+	for(let i = 0; i < 20; i++) document.body.innerHTML += box
+
+	let pressTimer = null
+	let needMove = false
+	let mouseMoveEvent = false
+	let tempObj = {x1: null, x2: null, y1: null, y2: null}
+	let pos = {start: {x: null, y: null}, end: {x: null, y: null}}
+
+	window.addEventListener('mousedown', (e) => {
+	  if (!e.target.className.includes('box')) {
+		    let eleArr = document.getElementsByClassName('active')
+		  	let len = eleArr.length
+		    for( let i = 0; i < len; i++) {
+		      document.getElementsByClassName('active')[0].className = 'box'
+		    }
+	  } else {
+	    pressTimer = setTimeout(function() {
+		    mouseMoveEvent = true
+		    tempObj.x1 = e.pageX
+		    tempObj.y1 = e.pageY
+		    let curTarget = e.target
+		    if(curTarget.className === 'box') {
+		      curTarget.className += " active";
+		    } 
+	  	}, 350)
+	  }
+	},false)
+
+	window.addEventListener('mouseup', (e) => {
+	  clearTimeout(pressTimer);
+	  mouseMoveEvent = false
+	  return false;
+	},false)
+
+	window.addEventListener('mousemove', (e) => {
+		e.preventDefault()
+	  	if(!mouseMoveEvent) {
+	  		pressTimer && clearTimeout(pressTimer)
+	  		return
+	  	}
+		
+		for(let i = 0; i < 20; i++) {
+			let ele = document.getElementsByClassName('box')[i]
+			ele.className = 'box'
+		}
+
+	   tempObj.x2 = e.pageX
+	   tempObj.y2 = e.pageY
+
+	   pos.start.x = tempObj.x1 > tempObj.x2 ? tempObj.x2 : tempObj.x1
+	   pos.start.y = tempObj.y1 < tempObj.y2 ? tempObj.y1 : tempObj.y2
+	   pos.end.x = tempObj.x1 < tempObj.x2 ? tempObj.x2 : tempObj.x1
+	   pos.end.y = tempObj.y1 > tempObj.y2 ? tempObj.y1 : tempObj.y2
+
+	  for(let i = 0; i < 20; i++) {
+	    let ele = document.getElementsByClassName('box')[i]
+	    if(ele.getBoundingClientRect().left + 100 > pos.start.x 
+	    	&& ele.getBoundingClientRect().left < pos.end.x 
+	    	&& ele.getBoundingClientRect().top + 100 > pos.start.y 
+	    	&& ele.getBoundingClientRect().top < pos.end.y ) {
+	      ele.className = 'box active'
+	    }
+	  }
+	  clearTimeout(pressTimer)
+	},false)
+  </script>
+</body>
+</html>
