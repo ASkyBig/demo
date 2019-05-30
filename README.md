@@ -40,3 +40,6 @@
 
 - [shadow dom demo](https://askybig.github.io/demo/JavaScript/shadow_dom_demo.html)
   shadow dom 的 demo 展示
+  
+- [longPress demo](https://askybig.github.io/demo/JavaScript/longPress_hack.html)
+  原生模拟 longPress，可以框选。
