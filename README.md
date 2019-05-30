@@ -43,3 +43,6 @@
   
 - [longPress demo](https://askybig.github.io/demo/JavaScript/longPress_hack.html)
   原生模拟 longPress，可以框选。
+  
+  长按盒子背景高亮，普通点击无变化，点击空白，移除所有高亮；
+  长按拖动鼠标，框选范围所有盒子高亮；
