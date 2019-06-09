@@ -11,7 +11,7 @@
 
 - [simple-comment](https://askybig.github.io/demo/React/simple-comment/): 简单评论与展示
 
-- [percentage_calculate](https://askybig.github.io/demo/React/percentage_calculate/): 数字变成百分比
+- [percent_calculate](https://askybig.github.io/demo/React/percent_calculate/): 数字变成百分比
 
   遇到一个奇怪的问题，`2.toFixed(2)` 语法错误，`(2).toFixed(2)`就可以，还不知道为啥？？？
 
