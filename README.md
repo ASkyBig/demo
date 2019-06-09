@@ -9,7 +9,11 @@
 
 - [Higher-Order-Components.html](https://askybig.github.io/demo/React/Higher-Order-Components.html): 高阶组件demo，提取通用逻辑
 
-- [simple-comment](https://askybig.github.io/demo/React/simple-comment/): 简单评论与展示，
+- [simple-comment](https://askybig.github.io/demo/React/simple-comment/): 简单评论与展示
+
+- [percentage_calculate](https://askybig.github.io/demo/React/percentage_calculate/): 数字变成百分比
+
+  遇到一个奇怪的问题，`2.toFixed(2)` 语法错误，`(2).toFixed(2)`就可以，还不知道为啥？？？
 
 ### CSS_demo
 - [CSS进度条](https://askybig.github.io/demo/CSS/progress.html): 百分比、分段进度条。
