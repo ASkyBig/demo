@@ -2,7 +2,7 @@
   <body>
     <p id="demo"></p>
     <script>
-      document.getElementById("demo").innerHTML = age;
+      document.getElementById("demo").innerHTML = window.location.search.replace('?', '').match(/=(.*)&/)[1];
     </script>
   </body>
 </html>
