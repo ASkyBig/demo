@@ -52,3 +52,6 @@
   
   长按盒子背景高亮，普通点击无变化，点击空白，移除所有高亮；
   长按拖动鼠标，框选范围所有盒子高亮；
+
+- [form demo](https://askybig.github.io/demo/JavaScript/form_test/form_input.html)
+  原生表单里面的 button 如果不加类型也会自动触发表单提交。
