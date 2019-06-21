@@ -13,7 +13,7 @@
 
 - [percent_calculate](https://askybig.github.io/demo/React/percent_calculate/): 数字变成百分比
 
-  遇到一个奇怪的问题，`2.toFixed(2)` 语法错误，`(2).toFixed(2)`就可以，还不知道为啥？？？
+  遇到一个奇怪的问题，`2.toFixed(2)` 语法错误，`(2).toFixed(2)`就可以，还不知道为啥？？？可能是2.作为2.0？
 
 ### CSS_demo
 - [CSS进度条](https://askybig.github.io/demo/CSS/progress.html): 百分比、分段进度条。
