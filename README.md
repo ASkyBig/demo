@@ -55,3 +55,12 @@
 
 - [form demo](https://askybig.github.io/demo/JavaScript/form_test/form_input.html)
   原生表单里面的 button 如果不加类型也会自动触发表单提交。
+
+- [距离当前的时间](https://askybig.github.io/demo/JavaScript/form_test/form_input.html)
+  * 刚刚 （1分钟内）
+  * 一小时前
+  * 一天前
+  * 一个月前
+  * n 年前
+  
+  
