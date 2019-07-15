@@ -1,0 +1,40 @@
+```
+const timeFormat1 = ( timestamp ) => {
+  let nowTime = new Date().getTime()
+  let duration = (nowTime - timestamp) / 1000
+  let result
+
+  switch (true) {
+    case duration <= 60: {
+      result = '刚刚'
+      break
+    }
+    case duration <= 60 * 60: {
+      let time = Math.ceil(+`${duration / 60}`)
+      result = `${time}分钟前`
+      break
+    }
+    case duration <= 60 * 60 * 24: {
+      let time = Math.ceil(+`${duration / 60 / 60}`)
+      result = `${time}小时前`
+      break
+    }
+    case duration <= 60 * 60 * 24 * 30: {
+      let time = Math.ceil(+`${duration / 60 / 60 / 24}`)
+      result = `${time}天前`
+      break
+    }
+    case duration <= 60 * 60 * 24 * 30 * 12: {
+      let time = Math.ceil(+`${duration / 60 / 60 / 24 / 30}`)
+      result = `${time}个月前`
+      break
+    }
+    default: {
+      let time = Math.ceil(+`${duration / 60 / 60 / 24 / 30 / 12}`)
+      result = `${time}年前`
+    }
+  }
+
+  return result
+}
+```
