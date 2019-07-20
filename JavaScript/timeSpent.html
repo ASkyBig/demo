@@ -40,6 +40,58 @@ const timeFormat1 = ( timestamp ) => {
 
   return result
 }
+
+const timeFormat2 = ( timestamp ) => {
+  let nowTime = new Date().getTime()
+  let duration = (nowTime - timestamp) / 1000
+  let result
+
+  switch (true) {
+    case duration < 60: {
+      result = '刚刚'
+      break
+    }
+    case duration < 60 * 60: {
+      let time = Math.ceil(+`${duration / 60}`)
+      result = `${time}分钟前`
+      break
+    }
+    case duration < 60 * 60 * 24: {
+      let hour = new Date(timestamp).getHours()
+      let min = new Date(timestamp).getMinutes()
+      result = `今天 ${hour}:${min}`
+      break
+    }
+    case duration < 60 * 60 * 24 * 2: {
+      let hour = new Date(timestamp).getHours()
+      let min = new Date(timestamp).getMinutes()
+      result = `昨天 ${hour}:${min}`
+      break
+    }
+    case duration <= 60 * 60 * 24 * 3: {
+      let hour = new Date(timestamp).getHours()
+      let min = new Date(timestamp).getMinutes()
+      result = `前天 ${hour}:${min}`
+      break
+    }
+    case duration <= 60 * 60 * 24 * 30 * 12: {
+      let mon = new Date(timestamp).getMonth() + 1
+      let date = new Date(timestamp).getDate()
+      let hour = new Date(timestamp).getHours()
+      let min = new Date(timestamp).getMinutes()
+      result = `${mon}-${date} ${hour}:${min}`
+      break
+    }
+    default: {
+      let year = new Date(timestamp).getFullYear()
+      let mon = new Date(timestamp).getMonth() + 1
+      let date = new Date(timestamp).getDate()
+      result = `${year}-${mon}-${date}`
+    }
+  }
+
+  return result
+}
 ```
     </pre>
   </body>
