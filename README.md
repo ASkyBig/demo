@@ -57,10 +57,19 @@
   原生表单里面的 button 如果不加类型也会自动触发表单提交。
 
 - [距离当前的时间](https://askybig.github.io/demo/JavaScript/timeSpent.html)
-  * 刚刚 （1分钟内）
-  * 一小时前
-  * 一天前
-  * 一个月前
-  * n 年前
+  - 刚刚 （1分钟内）
+  - xx 分钟前
+  - xx 小时前
+  - xx 天前
+  - xx 个月前
+  - xx  年前
   
+  ---
+  - 刚刚 （1分钟内）
+  - xx 分钟前
+  - 今天 xx:xx
+  - 昨天 xx:xx
+  - 前天 xx:xx
+  - xx-xx xx:xx
+  - xxxx-xx-xx
   
