@@ -1,0 +1,110 @@
+<html>
+<style>
+   /*  ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    ul li a{
+        display: block;
+        text-decoration: none;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        background-color: #2f3e45;
+    }
+    .drop-down{
+        width: 100px;
+        height: 50px;
+    }
+    .drop-down-content{
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: all 1s ease;
+    }
+    .drop-down-content li:hover a{
+        background-color: red;
+    }
+    .nav .drop-down:hover .drop-down-content{
+        opacity: 1;
+        height: 450px;
+    } */
+div li  {
+  list-style: none;
+}
+div li a {
+   text-decoration: none;
+}
+ 
+.drop {
+  cursor: pointer;
+  display: block;
+  background: #090;
+}
+
+input{
+ display: none; /* hide the checkboxes */
+}
+
+input + .drop + div{
+  display:none;
+}
+
+.drop:after {
+  content:'▼';
+}
+
+input:checked + .drop:after {
+  content:'▲';
+}
+
+input:checked + .drop + div{
+  display:block;
+}
+</style>
+<body>
+<!-- <ul class="nav">
+    <li class="drop-down">
+        <a href="#">布局</a>
+        <ul class="drop-down-content">
+            <li><a href="#">Flex布局</a></li>
+            <li><a href="#">Grid布局</a></li>
+            <li><a href="#">Shapes布局</a></li>
+            <li><a href="#">Columns布局</a></li>
+        </ul>
+    </li>
+   <li class="drop-down">
+        <a href="#">布局</a>
+        <ul class="drop-down-content">
+            <li><a href="#">Flex布局</a></li>
+            <li><a href="#">Grid布局</a></li>
+            <li><a href="#">Shapes布局</a></li>
+            <li><a href="#">Columns布局</a></li>
+        </ul>
+    </li>
+</ul>
+ -->
+<input id="_1" type="checkbox"> 
+<label class="drop" for="_1"> 布局 </label>
+
+  <div>
+      <li><a href="#">Flex布局</a></li>
+      <li><a href="#">Grid布局</a></li>
+      <li><a href="#">Shapes布局</a></li>
+      <li><a href="#">Columns布局</a></li>
+  </div>
+<input id="_2" type="checkbox">
+<label class="drop" for="_2"> 组件 </label>
+
+<div>
+    <li><a href="#">按钮</a></li>
+    <li><a href="#">输入框</a></li>
+    <li><a href="#">下拉列表</a></li>
+    <li><a href="#">单复选框</a></li>
+</div>
+
+</body>
+</html>
