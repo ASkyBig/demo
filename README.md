@@ -18,6 +18,8 @@
 ### CSS_demo
 - [CSS进度条](https://askybig.github.io/demo/CSS/progress.html): 百分比、分段进度条。
 
+- [CSS展开菜单](https://askybig.github.io/demo/CSS/下拉菜单.html): 下拉菜单。
+
 ### jQuery_demo
 - [判断元素是否绑定事件](https://askybig.github.io/demo/jQuery/hasBind.html)
 
