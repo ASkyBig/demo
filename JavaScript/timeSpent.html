@@ -43,6 +43,15 @@ const timeFormat1 = ( timestamp ) => {
 
 const timeFormat2 = ( timestamp ) => {
   let nowTime = new Date().getTime()
+  let todayBeginTime = new Date().setHours(0,0,0,0) // 今天零点的时间戳
+
+  let yesTime = nowTime - 1000 * 60 * 60 *24 // 获取昨天这个时候的时间
+  let yesBeginTime = new Date(yesTime).setHours(0,0,0,0) // 昨天零点的时间戳
+
+  let beforeYesTime = new Date(nowTime) - 1000 * 60 * 60 * 24 * 2 // 获取前天这个时候的时间
+  let beforeYesBeginTime = new Date(beforeYesTime).setHours(0,0,0,0) // 前天零点的时间戳
+
+  let thisYearTime = new Date(String((new Date().getFullYear())  + '-1-1')) // 今年的一月一号时间戳
   let duration = (nowTime - timestamp) / 1000
   let result
 
@@ -56,37 +65,37 @@ const timeFormat2 = ( timestamp ) => {
       result = `${time}分钟前`
       break
     }
-    case duration < 60 * 60 * 24: {
+    case timestamp > todayBeginTime: {
       let hour = new Date(timestamp).getHours()
       let min = new Date(timestamp).getMinutes()
-      result = `今天 ${hour}:${min}`
+      result = `今天 ${hour > 9 ? hour : `0${hour}`}:${min > 9 ? min : `0${min}`}`
       break
     }
-    case duration < 60 * 60 * 24 * 2: {
+    case timestamp > yesBeginTime: {
       let hour = new Date(timestamp).getHours()
       let min = new Date(timestamp).getMinutes()
-      result = `昨天 ${hour}:${min}`
+      result = `昨天 ${hour > 9 ? hour : `0${hour}`}:${min > 9 ? min : `0${min}`}`
       break
     }
-    case duration <= 60 * 60 * 24 * 3: {
+    case timestamp > beforeYesBeginTime: {
       let hour = new Date(timestamp).getHours()
       let min = new Date(timestamp).getMinutes()
-      result = `前天 ${hour}:${min}`
+      result = `前天 ${hour > 9 ? hour : `0${hour}`}:${min > 9 ? min : `0${min}`}`
       break
     }
-    case duration <= 60 * 60 * 24 * 30 * 12: {
+    case timestamp > thisYearTime: {
       let mon = new Date(timestamp).getMonth() + 1
       let date = new Date(timestamp).getDate()
       let hour = new Date(timestamp).getHours()
       let min = new Date(timestamp).getMinutes()
-      result = `${mon}-${date} ${hour}:${min}`
+      result = `${mon > 9 ? mon : `0${mon}`}-${date > 9 ? date : `0${date}`} ${hour > 9 ? hour : `0${hour}`}:${min > 9 ? min : `0${min}`}`
       break
     }
     default: {
       let year = new Date(timestamp).getFullYear()
       let mon = new Date(timestamp).getMonth() + 1
       let date = new Date(timestamp).getDate()
-      result = `${year}-${mon}-${date}`
+      result = `${year}-${mon > 9 ? mon : `0${mon}`}-${date > 9 ? date : `0${date}`}`
     }
   }
 
