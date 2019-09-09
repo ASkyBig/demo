@@ -20,7 +20,7 @@
 
 - [CSS展开菜单](https://askybig.github.io/demo/CSS/下拉菜单.html): 下拉菜单。
 
-- [特殊icon](https://askybig.github.io/demo/CSS/下拉菜单.html) :特殊icon。
+- [特殊icon](https://askybig.github.io/demo/CSS/特殊icon.html) :特殊icon。
 
 ### jQuery_demo
 - [判断元素是否绑定事件](https://askybig.github.io/demo/jQuery/hasBind.html)
