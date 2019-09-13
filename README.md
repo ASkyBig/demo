@@ -22,9 +22,6 @@
 
 - [特殊icon](https://askybig.github.io/demo/CSS/特殊icon.html) :特殊icon。
 
-### jQuery_demo
-- [判断元素是否绑定事件](https://askybig.github.io/demo/jQuery/hasBind.html)
-
 ### JavaScript_demo
 - [浏览器选项卡标题内容切换闪烁](https://askybig.github.io/demo/JavaScript/changeBrowserTitle.html)
 
