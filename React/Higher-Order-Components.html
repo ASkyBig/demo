@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+
+<div id="example"></div>
+<script type="text/babel">
+localStorage.setItem('name', 'xiaoming')
+localStorage.setItem('sex', 'male')
+localStorage.setItem('age', '25')
+
+const loadDataComponent = (WrappedComponent, itemName) => {
+	class NewComponent extends React.Component {
+		constructor() {
+			super()
+			this.state = {
+				itemData: ''
+			}
+		}
+
+		componentDidMount() {
+			let data = localStorage.getItem(itemName)
+			this.setState({
+				itemData: data
+			})
+		}
+
+		render() {
+			return (
+				<WrappedComponent data={this.state.itemData} />
+			)
+		}
+	}
+	return NewComponent
+}
+
+class Name extends React.Component {
+	render() {
+		return <p>name: {this.props.data}</p>
+	}
+}
+let StrengthName = loadDataComponent(Name, 'name')
+
+class Sex extends React.Component {
+	render() {
+		return <p>sex: {this.props.data}</p>
+	}
+}
+let StrengthSex = loadDataComponent(Sex, 'sex')
+
+class Age extends React.Component {
+	render() {
+		return <p>age: {this.props.data}</p>
+	}
+}
+let StrengthAge = loadDataComponent(Age, 'age')
+
+ReactDOM.render(
+	<div>
+		<StrengthName />
+		<StrengthSex />
+		<StrengthAge />
+	</div>,
+	document.getElementById('example')
+);
+</script>
+
+</body>
+</html>

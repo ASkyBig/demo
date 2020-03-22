@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         .hideP {
+            display: none;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <div style="width: 300px; height: 100%; position: fixed; right: 0px; top: 0; background-color: rgba(0,0,0,0.1)">
+        <div style="font-size: 20px; margin-top: 30px;border-bottom: 1px solid black; padding-bottom: 20px; color: black; margin-left: 20px;">B: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="白虎"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">C: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="出窍"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">F: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="凤凰"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="梵天"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">H: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="活动区"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="幻灵"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">J: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="金丹"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">K: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="鲲鹏"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">L: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="炼气"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="黎山"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="雷霆"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">Q: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="麒麟"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="青龙玄武"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="千秋"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">T: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="太白"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="天玑"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="天权"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="天璇"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">W: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="武道"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="万载"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">X: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="仙游"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="修真"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">Y: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="瑜伽室"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="元神"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="影音室"></div>
+        <div style="font-size: 20px; border-bottom: 1px solid black; padding-bottom: 20px;padding-top: 20px; color: black; margin-left: 20px;">Z: <input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="筑基"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="祝融"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="紫薇"><input style="display: inline-block; vertical-align: middle; font-size: 30px;" type="button" value="颛顼"><input style="font-size: 30px;" type="button" value="镇元"></div>
+      </div>
+      <p id="des">作为一个没有方向感的人，经常开会找不到会议室，所以就做了这个，灰常简陋，说不定还有bug~（第一次加载比较慢，因为图片都在GitHub）</p>
+      <a href="https://github.com/ASkyBig/demo/issues/1" style="position: absolute; top: 10px; right: 10px;">[issue地址]</a>
+      <div>
+         <canvas id="canvas" width="3000" height="1600" style="width: 1600px; height: 1000px"></canvas>
+      </div>
+      <div style="display: none;">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/0F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/1F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/2F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/3F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/4F.jpg">
+          <img src="https://askybig.github.io/demo/JavaScript/findMeetingRoom/5F.jpg">
+      </div>
+     <script>
+     // 如果存在
+     if(localStorage.getItem('ywMeeting')) {
+         document.getElementById("des").classList.add("hideP")
+     } else {
+         localStorage.setItem('ywMeeting','1')
+     }
+     window.addEventListener('click', function (e) {
+      findRoom(e.target.value);
+     })
+     var ctx = document.getElementById('canvas').getContext('2d');
+      const allRoomNames = {
+                            "1F":["幻灵", "仙游", "修真", "武道", "影音室", "活动区", "瑜伽室"],
+                            "2F": ["元神", "金丹", "万载", "炼气", "出窍", "筑基"],
+                            "3F": ["镇元", "太白", "黎山", "千秋", "祝融", "梵天", "颛顼"],
+                            "4F": ["白虎", "凤凰", "青龙玄武", "麒麟", "鲲鹏"],
+                            "5F": ["天璇", "天玑", "天权", "雷霆", "紫薇"]
+                           }
+      const allRoomPos = {
+                           "幻灵": {'p1': {'x': 1000, 'y': 615}, 'p2': {'x': 1000, 'y': 670}, 'p3': {'x': 935, 'y': 670}, 'p4': {'x': 935, 'y': 615}},
+
+                           "仙游": {'p1': {'x': 1000, 'y': 515}, 'p2': {'x': 1000, 'y': 580}, 'p3': {'x': 935, 'y': 580}, 'p4': {'x': 935, 'y': 515}},
+
+                           "修真": {'p1': {'x': 1000, 'y': 365}, 'p2': {'x': 1000, 'y': 420}, 'p3': {'x': 935, 'y': 420}, 'p4': {'x': 935, 'y': 365}},
+
+                           "武道": {'p1': {'x': 1005, 'y': 322}, 'p2': {'x': 1005, 'y': 375}, 'p3': {'x': 935, 'y': 375}, 'p4': {'x': 935, 'y': 315}},
+
+                           "影音室": {'p1': {'x': 400, 'y': 250}, 'p2': {'x': 400, 'y': 350}, 'p3': {'x': 250, 'y': 350}, 'p4': {'x': 250, 'y': 250}},
+
+                           "活动区": {'p1': {'x': 375, 'y': 325}, 'p2': {'x': 375, 'y': 385}, 'p3': {'x': 285, 'y': 385}, 'p4': {'x': 285, 'y': 325}},
+
+                           "瑜伽室": {'p1': {'x': 1140, 'y': 525}, 'p2': {'x': 1140, 'y': 600}, 'p3': {'x': 1045, 'y': 600}, 'p4': {'x': 1045, 'y': 525}},
+
+                           "元神": {'p1': {'x': 1030, 'y': 395}, 'p2': {'x': 1030, 'y': 470}, 'p3': {'x': 955, 'y': 470}, 'p4': {'x': 955, 'y': 395}},
+
+                           "金丹": {'p1': {'x': 1030, 'y': 320}, 'p2': {'x': 1030, 'y': 380}, 'p3': {'x': 955, 'y': 380}, 'p4': {'x': 955, 'y': 320}},
+
+                           "万载": {'p1': {'x': 820, 'y': 280}, 'p2': {'x': 820, 'y': 390}, 'p3': {'x': 680, 'y': 390}, 'p4': {'x': 680, 'y': 280}}, 
+
+                           "炼气": {'p1': {'x': 320, 'y': 280}, 'p2': {'x': 320, 'y': 330}, 'p3': {'x': 260, 'y': 330}, 'p4': {'x': 260, 'y': 280}},
+
+                           "出窍": {'p1': {'x': 200, 'y': 280}, 'p2': {'x': 200, 'y': 330}, 'p3': {'x': 120, 'y': 330}, 'p4': {'x': 120, 'y': 280}},
+
+                           "筑基": {'p1': {'x': 20, 'y': 290}, 'p2': {'x': 20, 'y': 340}, 'p3': {'x': -25, 'y': 340}, 'p4': {'x': -25, 'y': 290}},
+
+                           "镇元": {'p1': {'x': 1010, 'y': 515}, 'p2': {'x': 1010, 'y': 585}, 'p3': {'x': 945, 'y': 585}, 'p4': {'x': 945, 'y': 515}},
+
+                           "太白": {'p1': {'x': 1010, 'y': 365}, 'p2': {'x': 1010, 'y': 410}, 'p3': {'x': 945, 'y': 410}, 'p4': {'x': 945, 'y': 365}},
+                           "黎山": {'p1': {'x': 1010, 'y': 315}, 'p2': {'x': 1010, 'y': 375}, 'p3': {'x': 945, 'y': 375}, 'p4': {'x': 945, 'y': 310}},
+
+                           "千秋": {'p1': {'x': 810, 'y': 280}, 'p2': {'x': 810, 'y': 380}, 'p3': {'x': 680, 'y': 380}, 'p4': {'x': 680, 'y': 280}}, 
+
+                           "祝融": {'p1': {'x': 480, 'y': 260}, 'p2': {'x': 480, 'y': 330}, 'p3': {'x': 400, 'y': 330}, 'p4': {'x': 400, 'y': 260}}, 
+
+                           "梵天": {'p1': {'x': 320, 'y': 270}, 'p2': {'x': 320, 'y': 330}, 'p3': {'x': 260, 'y': 330}, 'p4': {'x': 260, 'y': 270}},
+
+                           "颛顼": {'p1': {'x': 210, 'y': 270}, 'p2': {'x': 210, 'y': 330}, 'p3': {'x': 120, 'y': 330}, 'p4': {'x': 120, 'y': 270}},
+
+                           "白虎": {'p1': {'x': 1000, 'y': 700}, 'p2': {'x': 1000, 'y': 740}, 'p3': {'x': 910, 'y': 740}, 'p4': {'x': 910, 'y': 700}},
+
+                           "凤凰": {'p1': {'x': 1000, 'y': 550}, 'p2': {'x': 1000, 'y': 600}, 'p3': {'x': 910, 'y': 600}, 'p4': {'x': 910, 'y': 550}}, 
+
+                           "青龙玄武": {'p1': {'x': 820, 'y': 190}, 'p2': {'x': 820, 'y': 280}, 'p3': {'x': 680, 'y': 280}, 'p4': {'x': 680, 'y': 190}},
+
+                           "麒麟": {'p1': {'x': 500, 'y': 270}, 'p2': {'x': 500, 'y': 325}, 'p3': {'x': 400, 'y': 325}, 'p4': {'x': 400, 'y': 270}},
+
+                           "鲲鹏": {'p1': {'x': 210, 'y': 270}, 'p2': {'x': 210, 'y': 325}, 'p3': {'x': 125, 'y': 325}, 'p4': {'x': 125, 'y': 270}},
+
+                           "天璇": {'p1': {'x': 1035, 'y': 600}, 'p2': {'x': 1035, 'y': 660}, 'p3': {'x': 970, 'y': 660}, 'p4': {'x': 970, 'y': 600}}, 
+
+                           "天玑": {'p1': {'x': 1035, 'y': 540}, 'p2': {'x': 1035, 'y': 600}, 'p3': {'x': 970, 'y': 600}, 'p4': {'x': 970, 'y': 540}}, 
+                           "天权": {'p1': {'x': 1035, 'y': 500}, 'p2': {'x': 1035, 'y': 565}, 'p3': {'x': 970, 'y': 565}, 'p4': {'x': 970, 'y': 500}}, 
+
+                           "雷霆": {'p1': {'x': 1035, 'y': 370}, 'p2': {'x': 1035, 'y': 440}, 'p3': {'x': 970, 'y': 440}, 'p4': {'x': 970, 'y': 370}}, 
+                           "紫薇": {'p1': {'x': 1035, 'y': 310}, 'p2': {'x': 1035, 'y': 380}, 'p3': {'x': 970, 'y': 380}, 'p4': {'x': 970, 'y': 310}}, 
+                         }
+   
+      function findRoom (name) {
+         // let name = document.getElementById("name").value;
+         let whickF = 0;
+         const fArr = Object.keys(allRoomNames);
+         for( let i = 0; i < fArr.length; i++) {
+            if( whickF != 0) break
+            let f = i + 1;
+            for(let j = 0; j < allRoomNames[fArr[i]].length; j++) {
+               if( name === allRoomNames[fArr[i]][j]) {
+                  whickF = f;
+                  break;
+               }
+            }
+         }
+         drawImageAndLines(name, whickF)
+      }
+
+      function getPixelRatio (context) {
+        var backingStore = context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio || 1;
+         return (window.devicePixelRatio || 1) / backingStore;
+      }
+
+      function drawImageAndLines (name, whickF) {
+            ctx.clearRect(0,0,3000,1600);
+            var ratio = getPixelRatio(ctx);
+            var img = new Image();
+            img.src = `./${whickF}F.jpg`;
+            img.onload = function() {
+                 ctx.drawImage(img, 0, 0, ratio * 1500, ratio* 800)
+                 ctx.beginPath()
+                 ctx.strokeStyle="red"
+                 ctx.lineWidth=5
+                 let pos = JSON.parse(JSON.stringify(allRoomPos[name]))
+                 pos.p1.x = (pos.p1.x + 150) * ratio
+                 pos.p1.y = (pos.p1.y - 40) * ratio
+                 pos.p2.x = (pos.p2.x + 150) * ratio
+                 pos.p2.y = (pos.p2.y - 40) * ratio
+                 pos.p3.x = (pos.p3.x + 120) * ratio 
+                 pos.p3.y = (pos.p3.y - 40) * ratio
+                 pos.p4.x = (pos.p4.x + 120) * ratio
+                 pos.p4.y = (pos.p4.y - 40) * ratio
+                 ctx.moveTo(pos.p1.x, pos.p1.y );
+                 ctx.lineTo(pos.p2.x, pos.p2.y);
+                 ctx.lineTo(pos.p3.x, pos.p3.y);
+                 ctx.lineTo(pos.p4.x, pos.p4.y);
+                 ctx.closePath()
+                 ctx.stroke();
+
+            }
+      }
+
+      var comment = document.createComment( '找下会议室!' );
+      document.body.appendChild( comment );
+     </script>
+   </body>
+</html>

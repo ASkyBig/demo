@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>React 实例</title>
+	<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+	<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+	<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+function increase(name) {
+  return { type: 'INCREMENT', name: name };
+}
+function decrease(name) {
+  return { type: 'DECREMENT', name: name };
+}
+
+const initialValue = {first: 0, second: 10, third: 20}
+
+function reducer(state, action) {
+  const { name } = action;
+  console.log('action', action)
+  console.log('state', state)
+
+  switch (action.type) {
+    case 'INCREMENT':
+      return { ...state, [name]: state[name] + 1 };
+    case 'DECREMENT':
+      return { ...state, [name]: state[name] - 1 };
+    default:
+      return state; // 无论如何都返回一个 state
+  }
+}
+
+let store = Redux.createStore(reducer, initialValue);
+
+class ControlPanel extends React.Component {
+  constructor(props) {
+    super(props)
+    this.onChange = this.onChange.bind(this)
+    this.state = {
+      sum: this.getOwnState()
+    }
+  } 
+
+  componentDidMount() {
+  	store.subscribe(this.onChange)
+  }
+
+  componentWillUnmount() {
+  	store.unsubscribe(this.onChange)
+  }
+
+  getOwnState() {
+  		const state = store.getState()
+  		let sum = 0
+  		for( const key in state ) {
+  			if( state.hasOwnProperty(key)) {
+  				sum += state[key];
+  			}
+  		}
+		return sum;
+  }
+
+  onChange() {
+  	console.log('this.getOwnState', this.getOwnState())
+  	this.setState({sum: this.getOwnState()})
+  }
+  
+  render() {
+    return (
+      <div>
+        <Counter name="first"  />
+        <Counter name="second" />
+        <Counter name="third" />
+        <hr />
+        <span>total: {this.state.sum}</span>
+      </div>
+    );
+  }
+}
+
+class Counter extends React.Component {
+	constructor(props) {
+		super(props)
+		this.increase = this.increase.bind(this)
+		this.decrease = this.decrease.bind(this)
+		this.onChange = this.onChange.bind(this)
+		this.state = {
+			count: this.getOwnState()
+		}
+	}
+
+	componentDidMount() {
+		// 监听store的状态变化，当状态变化时，触发onChange回调
+  		store.subscribe(this.onChange)
+ 	}
+
+  	componentWillUnmount() {
+  		store.unsubscribe(this.onChange)
+ 	}
+
+	getOwnState() {
+		return store.getState()[this.props.name]
+	}
+	onChange() {
+		this.setState({
+			count: this.getOwnState()
+		})
+	}
+	increase() {
+		store.dispatch(increase(this.props.name))
+	}
+	decrease() {
+		store.dispatch(decrease(this.props.name))
+	}
+	render() {
+	  	const {name} = this.props
+	    return (
+	      <div>
+	        <button onClick={this.increase}>+</button>
+	        <span>{this.state.count}</span>
+	        <button onClick={this.decrease}>-</button>
+	        <span>{name}</span>
+	      </div>
+	    );
+	}
+}
+
+ReactDOM.render(
+   <div>
+      <ControlPanel />
+   </div>,
+  document.getElementById('example')
+);
+</script>
+
+</body>
+</html>
